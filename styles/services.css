@@ -1,0 +1,60 @@
+.services div {
+  position: relative;
+}
+.services div:hover, .services .hover{
+  @apply shadow-xl;
+  animation: lift 0.3s both;
+}
+
+@keyframes lift {
+  0%{
+    top: 0;
+  }
+  100%{
+    top: -5px;
+  }
+}
+
+
+ .services {
+  @apply shadow-lg;
+}
+
+.services div::before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  z-index: 0;
+  height: 100%;
+  top: -30px;
+  left: -30px;
+  width: 100%;
+  background-image: url(../assests/images/pattern1.png);
+}
+.services div:hover::before,
+.services div:hover::after,
+.services .hover::after,
+.services .hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.services div::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 0.5s;
+  transform: scale(0.5);
+  z-index: 0;
+  height: 290px;
+  bottom: -40px;
+  right: -30px;
+  width: 250px;
+  background-image: url(../assests/images/pattern2.png);
+}
+

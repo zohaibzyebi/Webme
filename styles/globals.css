@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior: smooth
+}
+ 
+body {
+  font-family: Poppins, sans-serif;
+  line-height: 1.6;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.container{
+  @apply max-w-7xl mx-auto;
+}
+.title{
+  @apply text-3xl md:text-4xl text-center my-10 font-extrabold text-indigo-600;
+}
+
+.move1 {
+  animation: move1 4s infinite;
+}
+
+@keyframes move1 {
+  0% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px);
+  }
+  50% {
+    -webkit-transform: rotate(1deg) translate(2px, 2px);
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+  100% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px);
+  }
+}
