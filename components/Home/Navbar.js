@@ -1,8 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import logo from "../../assests/images/rev-01.png";
 import Search from "../Reusable/Search";
@@ -18,9 +19,23 @@ const navigation = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <Popover>
-      <div className="fixed z-50 w-full md:w-5/6 left-1/2 -translate-x-1/2 bg-white py-6 px-4 sm:px-6 lg:px-8 rounded">
+      <div className={`fixed z-50 w-full md:w-5/6 left-1/2 -translate-x-1/2 bg-white py-6 px-4 sm:px-6 lg:px-8 rounded ${scrollPosition > 100 && `drop-shadow-sm`}`}>
         <Search isOpen={isOpen} setIsOpen={setIsOpen} />
 
         <nav className="relative flex items-center justify-between sm:h-10 font-bold" aria-label="Global">
@@ -33,7 +48,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center md:ml-10 md:pr-4 md:space-x-8">
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div className="flex items-center justify-between w-full md:w-auto">
-                <Link href="/">
+                <Link href="/" >
                   <Image
                     alt="Webme"
                     height="50px"

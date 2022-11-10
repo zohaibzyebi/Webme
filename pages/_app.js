@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-
       <div className='relative pt-10'>
         <Component {...pageProps} />
       </div>

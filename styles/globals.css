@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  scroll-behavior: smooth
+html {
+  scroll-behavior: smooth;
 }
- 
+
 body {
   font-family: Poppins, sans-serif;
   line-height: 1.6;
@@ -13,10 +13,10 @@ body {
   font-weight: 400;
 }
 
-.container{
+.container {
   @apply max-w-7xl mx-auto;
 }
-.title{
+.title {
   @apply text-3xl md:text-4xl text-center my-10 font-extrabold text-indigo-600;
 }
 
@@ -36,5 +36,34 @@ body {
   100% {
     -webkit-transform: rotate(-1deg) translate(-2px, -2px);
     transform: rotate(-1deg) translate(-2px, -2px);
+  }
+}
+
+.bounceDown {
+  animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
   }
 }
